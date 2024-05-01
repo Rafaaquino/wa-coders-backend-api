@@ -4,6 +4,7 @@ const config = require("../config/config");
 const createUserToken = async (user, req, res) => {
   const token = jwt.sign(
     {
+      email: user.email,
       name: user.name,
       id: user._id,
     },
