@@ -54,7 +54,9 @@ module.exports = class ForgotPasswordController {
       if (error) {
         res.status(500).json({ message: "Error sending email", error });
       } else {
-        res.status(200).json({ message: "Email successfully sent" });
+        res
+          .status(200)
+          .json({ message: "Email successfully sent", email: email });
       }
     });
   }
