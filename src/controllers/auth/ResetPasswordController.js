@@ -4,7 +4,8 @@ const config = require("../../config/config");
 
 module.exports = class ResetPasswordController {
   static async resetPassword(req, res) {
-    const { email, newPassword, mathPassword } = req.body;
+    const { newPassword, mathPassword } = req.body.newPass;
+    const email = req.body.email;
 
     if (!email) {
       return res.status(422).json({ message: "Email is required" });
@@ -21,7 +22,7 @@ module.exports = class ResetPasswordController {
     const user = await User.findOne({ email: email });
 
     if (!user) {
-      return res.status(422).json({ message: "Email does not exist" });
+      return res.status(422).json({ message: "User does not exist" });
     }
 
     console.log("req: ", req.body);
