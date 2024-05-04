@@ -1,4 +1,4 @@
-function getQuotelHTML(step1, step2, step3, step4, step5) {
+function getQuotelHTML(step1, step2, step3, step4, step5, step6) {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -106,8 +106,8 @@ function getQuotelHTML(step1, step2, step3, step4, step5) {
 <ul>
     <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step1.firstName}&nbsp;${step1.lastName}</li>
     <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step1.email}</li>
-    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step1.country}&nbsp; ${step1.city}</li>
-    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step1.companyName}</li>
+    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step1.country}&nbsp; - ${step1.city}</li>
+    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step1.company}</li>
 </ul>
 
 <p style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-size: 16px;line-height: 150%;text-align: left;"><span style="font-size:24px"><strong>General Information</strong></span></p>
@@ -126,19 +126,24 @@ function getQuotelHTML(step1, step2, step3, step4, step5) {
     <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step3?.integrations}</li>
 </ul>
 
-<p style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-size: 16px;line-height: 150%;text-align: left;"><span style="font-size:24px"><strong>Technology and Design</strong></span></p>
+<p style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-size: 16px;line-height: 150%;text-align: left;"><span style="font-size:24px"><strong>Technologies</strong></span></p>
 
 <ul>
     <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step4.prefferTecnology}</li>
-    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step4?.prefferDesing}</li>
-    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step4?.security}</li>
+</ul>
+
+<p style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-size: 16px;line-height: 150%;text-align: left;"><span style="font-size:24px"><strong>Design &n Security</strong></span></p>
+
+<ul>
+    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step5.prefferDesing}</li>
+    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step5?.security}</li>
 </ul>
 
 <p style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-size: 16px;line-height: 150%;text-align: left;"><span style="font-size:24px"><strong>Budget</strong></span></p>
 
 <ul>
-    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step5.budget}</li>
-    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step5?.additionalNotes}</li>
+    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step6.budget}</li>
+    <li style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">${step6?.additionalNotes}</li>
 </ul>
 
 <p style="font-family: Arial, &quot;Helvetica Neue&quot;, Helvetica, sans-serif;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-size: 16px;line-height: 150%;text-align: left;"><br>

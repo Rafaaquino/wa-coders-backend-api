@@ -5,7 +5,7 @@ const Quote = require("../../models/Quote");
 
 module.exports = class QuotesController {
   static async send(req, res) {
-    const { step1, step2, step3, step4, step5 } = req.body;
+    const { step1, step2, step3, step4, step5, step6 } = req.body;
 
     console.log("veio ", req.body);
 
@@ -34,8 +34,8 @@ module.exports = class QuotesController {
       return res.status(422).json({ message: "City is required" });
     }
 
-    if (!step1.companyName) {
-      return res.status(422).json({ message: "City is required" });
+    if (!step1.company) {
+      return res.status(422).json({ message: "Company is required" });
     }
 
     //validations step2
@@ -75,30 +75,28 @@ module.exports = class QuotesController {
       return res.status(422).json({ message: "Select as Tecnologys" });
     }
 
-    //validations step5
-    if (!step5) {
+    //validations step6
+    if (!step6) {
       return res.status(422).json({ message: "Labels required" });
     }
 
-    if (!step5.budget) {
+    if (!step6.budget) {
       return res.status(422).json({ message: "Budget required" });
     }
 
-    const newQuotes = new Quote({ step1, step2, step3, step4, step5 });
-    const html = getQuoteHTML(step1, step2, step3, step4, step5);
+    const newQuotes = new Quote({ step1, step2, step3, step4, step5, step6 });
+    const html = getQuoteHTML(step1, step2, step3, step4, step5, step6);
 
     try {
       await newQuotes.save();
 
       const mailOptions = {
         from: config.EMAIL,
-        to: config.EMAIL,
-        bcc: step1.email,
+        to: [config.EMAIL, step1.email],
         subject: "WA Coders Quotes",
+        text: "New quotation",
         html: html,
       };
-
-      console.log(mailOptions);
 
       transporter.sendMail(mailOptions, (error) => {
         if (error) {
