@@ -1,4 +1,4 @@
-const mongoose = require("../db/connect-db");
+const mongoose = require("../../db/connect-db");
 const { Schema } = mongoose;
 
 const Quotes = mongoose.model(

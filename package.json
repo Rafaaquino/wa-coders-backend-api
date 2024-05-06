@@ -2,11 +2,11 @@
   "name": "wa-coders-backend-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js",
-    "dev": "nodemon --inspect ./index.js localhost 3000",
+    "start": "nodemon ./app.js",
+    "start:dev": "nodemon --inspect ./app.js localhost 3000",
     "doc": "node src/public/docs/swagger.js"
   },
   "dependencies": {
@@ -27,5 +27,8 @@
     "path": "^0.12.7",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

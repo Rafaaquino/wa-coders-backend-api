@@ -1,6 +1,6 @@
 const transporter = require("../../helpers/mailer");
 const config = require("../../config/config");
-const getQuoteHTML = require("../../views/quotes-template");
+const getQuoteHTML = require("../../../views/quotes-template");
 const Quote = require("../../models/Quote");
 
 module.exports = class QuotesController {

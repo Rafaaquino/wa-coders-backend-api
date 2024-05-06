@@ -1,7 +1,7 @@
 const config = require("../../config/config");
 const crypto = require("crypto");
 const transporter = require("../../helpers/mailer");
-const getEmailHTML = require("../../views/recovery-template");
+const getEmailHTML = require("../../../views/recovery-template");
 const User = require("../../models/User");
 
 module.exports = class ForgotPasswordController {
