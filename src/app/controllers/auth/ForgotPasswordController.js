@@ -1,7 +1,7 @@
 const config = require("../../config/config");
 const crypto = require("crypto");
 const transporter = require("../../helpers/mailer");
-const getEmailHTML = require("../../views/recovery-template");
+const getEmailHTML = require("../../../views/recovery-template");
 const User = require("../../models/User");
 
 module.exports = class ForgotPasswordController {
@@ -54,7 +54,9 @@ module.exports = class ForgotPasswordController {
       if (error) {
         res.status(500).json({ message: "Error sending email", error });
       } else {
-        res.status(200).json({ message: "Email successfully sent" });
+        res
+          .status(200)
+          .json({ message: "Email successfully sent", email: email });
       }
     });
   }
