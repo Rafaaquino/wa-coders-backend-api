@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 const config = require("../app/config/config");
 
 async function main() {
-  await mongoose.connect(
-    "mongodb+srv://wacoders:gDU7Jp7hNPZmYGyw@wacodersdb.et0tbe3.mongodb.net/?retryWrites=true&w=majority&appName=wacodersdb"
-  );
+  await mongoose.connect(config.MONGODB_URI);
   console.log(`conectou ao banco!`);
 }
 
