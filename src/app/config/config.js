@@ -20,6 +20,6 @@ module.exports = {
   API: "/api/v1",
   PORT_SMTP: 465,
   HOST_SMTP: "mail.wacoders.com",
-  HOST_FRONT: "http://localhost:4200",
+  HOST_FRONT: "https://www.wacoders.com",
   HOST_DEV: "http://localhost:4200",
 };
