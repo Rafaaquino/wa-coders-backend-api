@@ -3,6 +3,7 @@ const cors = require("cors");
 const config = require("./src/app/config/config");
 const UserRoutes = require("./src/app/routes/UserRoutes");
 const EmailsRouter = require("./src/app/routes/EmailsRoutes");
+const Ticket = require("./src/app/routes/TicketRoutes");
 const Commons = require("./src/commons/routes/api-commons");
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ app.use(
 //routes
 app.use(`${config.API}/emails`, EmailsRouter);
 app.use(`${config.API}/users`, UserRoutes);
+app.use(`${config.API}/tickets`, Ticket);
 app.use(`${config.API}/commons`, Commons);
 
 app.listen(PORT, () => {
