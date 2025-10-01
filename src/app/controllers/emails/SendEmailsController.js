@@ -16,6 +16,7 @@ module.exports = class SendEmailsController {
     };
 
     console.log(mailOptions);
+    console.log(config.EMAIL, config.EPASSWORD);
 
     transporter.sendMail(mailOptions, (error) => {
       if (error) {
