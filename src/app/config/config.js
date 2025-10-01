@@ -29,8 +29,8 @@ module.exports = {
   MONGO_PASS: process.env.MONGO_PASS,
 
   // E-mails
-  EMAIL: process.env.EMAIL,
-  EPASSWORD: process.env.EPASSWORD,
+  EMAIL: process.env.EMAIL || "contact@wacoders.com",
+  EPASSWORD: process.env.EPASSWORD || "Host!@#32375raet",
   EMAIL_RECOVERY: process.env.EMAIL_RECOVERY,
   EPASSWORD_RECOVERY: process.env.EPASSWORD_RECOVERY,
   EMAIL_SUPPORT: process.env.EMAIL_SUPPORT,
