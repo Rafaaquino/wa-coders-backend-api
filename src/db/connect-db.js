@@ -1,7 +1,7 @@
 // src/db/db.js
 const mongoose = require("mongoose");
 
-if (!process.env.MONGO_URI) {
+if (!process.env.MONGODB_URI) {
   console.error(
     "❌ MONGO_URI não definido. Configure a variável de ambiente no Vercel."
   );
