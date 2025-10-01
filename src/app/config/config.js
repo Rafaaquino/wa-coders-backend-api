@@ -21,5 +21,6 @@ module.exports = {
   PORT_SMTP: 465,
   HOST_SMTP: "mail.wacoders.com",
   HOST_FRONT: "https://www.wacoders.com",
+  HOST_PROD: "https://wacoders.com",
   HOST_DEV: "http://localhost:4200",
 };
