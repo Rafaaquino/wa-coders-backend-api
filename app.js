@@ -12,7 +12,7 @@ app.use(express.json());
 
 //resolve cors
 app.use(
-  cors({ credentials: true, origin: [config.HOST_FRONT, config.HOST_DEV, 'https://wacoders.com'] })
+  cors({ credentials: true, origin: [config.HOST_FRONT, config.HOST_DEV, config.HOST_PROD] })
 );
 
 //routes
