@@ -1,4 +1,4 @@
-// config.js
+// config.js (produção - Vercel)
 
 const requiredEnvs = [
   "EMAIL",
@@ -9,26 +9,23 @@ const requiredEnvs = [
   "EPASSWORD_SUPPORT",
   "JWTSECRET",
   "MONGODB_URI",
+  "MONGO_PASS",
 ];
 
 requiredEnvs.forEach((env) => {
   if (!process.env[env]) {
-    console.warn(`⚠️  Atenção: variável de ambiente ${env} não definida!`);
+    console.warn(`⚠️ Atenção: variável de ambiente ${env} não definida!`);
   }
 });
 
 module.exports = {
-  // Mongo
-  MONGODB_URI:
-    process.env.MONGODB_URI ||
-    "mongodb+srv://wacoders:gDU7Jp7hNPZmYGyw@wacodersdb.et0tbe3.mongodb.net/?retryWrites=true&w=majority&appName=wacodersdb",
-  MONGODB_URI_LOCAL:
-    process.env.MONGODB_URI_LOCAL || "mongodb://localhost:27017/wa-coders",
-  MONGO_PASS: process.env.MONGO_PASS || "gDU7Jp7hNPZmYGyw",
+  // MongoDB
+  MONGODB_URI: process.env.MONGODB_URI,
+  MONGO_PASS: process.env.MONGO_PASS,
 
   // E-mails
-  EMAIL: process.env.EMAIL || "contact@wacoders.com",
-  EPASSWORD: process.env.EPASSWORD || "Host!@#32375raet",
+  EMAIL: process.env.EMAIL,
+  EPASSWORD: process.env.EPASSWORD,
   EMAIL_RECOVERY: process.env.EMAIL_RECOVERY,
   EPASSWORD_RECOVERY: process.env.EPASSWORD_RECOVERY,
   EMAIL_SUPPORT: process.env.EMAIL_SUPPORT,
