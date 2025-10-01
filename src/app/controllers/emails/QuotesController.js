@@ -98,12 +98,15 @@ module.exports = class QuotesController {
         html: html,
       };
 
-      transporter.sendMail(mailOptions, (error) => {
+      transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-          res.status(500).json({ message: "Error sending email", error });
-        } else {
-          res.status(200).json({ message: "Email successfully sent" });
+          console.error("Mail Error:", error);
+          return res
+            .status(500)
+            .json({ message: "Error sending email", error });
         }
+        console.log("Mail sent:", info);
+        res.status(200).json({ message: "Email successfully sent" });
       });
     } catch (error) {
       res
