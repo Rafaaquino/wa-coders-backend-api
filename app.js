@@ -16,6 +16,7 @@ const allowedOrigins = [
   config.HOST_FRONT, // https://www.wacoders.com
   config.HOST_PROD, // https://wacoders.com
   config.HOST_DEV, // http://localhost:4200
+  "https://wa-coders-backend-api.vercel.app",
 ];
 
 app.use(
