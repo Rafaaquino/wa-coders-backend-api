@@ -1,5 +1,4 @@
 // config.js (produção - Vercel)
-
 const requiredEnvs = [
   "EMAIL",
   "EPASSWORD",
@@ -12,9 +11,12 @@ const requiredEnvs = [
   "MONGO_PASS",
 ];
 
+// Verifica se todas as variáveis obrigatórias estão definidas
 requiredEnvs.forEach((env) => {
   if (!process.env[env]) {
-    console.warn(`⚠️ Atenção: variável de ambiente ${env} não definida!`);
+    console.error(
+      `❌ Variável de ambiente ${env} não definida! Configure no Vercel Production.`
+    );
   }
 });
 
