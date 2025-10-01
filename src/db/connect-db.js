@@ -11,10 +11,7 @@ if (!config.MONGODB_URI) {
 
 async function connectDB() {
   try {
-    await mongoose.connect(config.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(config.MONGODB_URI);
     console.log("✅ Conectou ao banco MongoDB!");
   } catch (err) {
     console.error("❌ Erro ao conectar no MongoDB:", err);
