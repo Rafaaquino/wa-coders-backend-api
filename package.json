@@ -10,6 +10,7 @@
     "doc": "node src/public/docs/swagger.js"
   },
   "dependencies": {
+    "@vercel/node": "^5.3.24",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cookie-parse": "^0.4.0",
