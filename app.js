@@ -42,4 +42,4 @@ app.use(`${config.API}/tickets`, Ticket);
 app.use(`${config.API}/commons`, Commons);
 
 // Exporta apenas para Vercel
-module.exports = require("@vercel/node")(app);
+module.exports = app;
