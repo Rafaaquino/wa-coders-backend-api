@@ -23,10 +23,12 @@ requiredEnvs.forEach((env) => {
 
 module.exports = {
   // Mongo
-  MONGODB_URI: process.env.MONGODB_URI,
+  MONGODB_URI:
+    process.env.MONGODB_URI ||
+    "mongodb+srv://wacoders:gDU7Jp7hNPZmYGyw@wacodersdb.et0tbe3.mongodb.net/?retryWrites=true&w=majority&appName=wacodersdb",
   MONGODB_URI_LOCAL:
     process.env.MONGODB_URI_LOCAL || "mongodb://localhost:27017/wa-coders",
-  MONGO_PASS: process.env.MONGO_PASS,
+  MONGO_PASS: process.env.MONGO_PASS || "gDU7Jp7hNPZmYGyw",
 
   // E-mails
   EMAIL: process.env.EMAIL || "contact@wacoders.com",
