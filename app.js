@@ -16,21 +16,26 @@ const allowedOrigins = [
   config.HOST_FRONT, // https://www.wacoders.com
   config.HOST_PROD, // https://wacoders.com
   config.HOST_DEV, // http://localhost:4200
-  "https://wa-coders-backend-api.vercel.app",
 ];
 
 app.use(
   cors({
     credentials: true,
     origin: function (origin, callback) {
-      // permite requisições sem origin (ex.: curl, Postman, Vercel serverless)
-      if (!origin) return callback(null, true);
+      console.log("CORS origin:", origin); // Para debug
 
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg = "CORS policy does not allow access from this origin.";
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
+      if (!origin) return callback(null, true); // Postman, curl, etc
+
+      // aceitar domínios fixos
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+
+      // aceitar subdomínios do vercel
+      if (/\.vercel\.app$/.test(origin)) return callback(null, true);
+
+      return callback(
+        new Error("CORS policy does not allow access from this origin."),
+        false
+      );
     },
   })
 );
@@ -43,3 +48,4 @@ app.use(`${config.API}/commons`, Commons);
 
 // Exporta para a Vercel (não usar app.listen)
 module.exports = app;
+module.exports = require("@vercel/node")(app);
