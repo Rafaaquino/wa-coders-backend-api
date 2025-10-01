@@ -12,8 +12,26 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 //resolve cors
+const allowedOrigins = [
+  config.HOST_FRONT,  // https://www.wacoders.com
+  config.HOST_PROD,   // https://wacoders.com
+  config.HOST_DEV     // http://localhost:4200
+];
+
 app.use(
-  cors({ credentials: true, origin: [config.HOST_FRONT, config.HOST_DEV, config.HOST_PROD] })
+  cors({
+    credentials: true,
+    origin: function(origin, callback) {
+      // permite requisições sem origin (ex.: curl, Postman, Vercel serverless)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'CORS policy does not allow access from this origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    }
+  })
 );
 
 //routes
