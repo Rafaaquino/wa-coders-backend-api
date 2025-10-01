@@ -11,7 +11,9 @@ if (!config.MONGODB_URI) {
 
 async function connectDB() {
   try {
-    await mongoose.connect(config.MONGODB_URI);
+    await mongoose.connect(
+      "mongodb+srv://wacoders:gDU7Jp7hNPZmYGyw@wacodersdb.et0tbe3.mongodb.net/?retryWrites=true&w=majority&appName=wacodersdb"
+    );
     console.log("✅ Conectou ao banco MongoDB!");
   } catch (err) {
     console.error("❌ Erro ao conectar no MongoDB:", err);
