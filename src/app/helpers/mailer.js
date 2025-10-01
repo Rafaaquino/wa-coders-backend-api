@@ -3,13 +3,15 @@ const hbs = require("nodemailer-express-handlebars");
 const config = require("../config/config");
 
 const transporter = nodemailer.createTransport({
-  name: "no-reply@wacoders.com",
-  host: config.HOST_SMTP,
-  port: config.PORT_SMTP,
+  host: config.HOST_SMTP, // mail.wacoders.com
+  port: config.PORT_SMTP, // 465
   secure: true,
   auth: {
-    user: config.EMAIL, // Insira seu endereço de e-mail
-    pass: config.EPASSWORD, // Insira sua senha
+    user: config.EMAIL, // "no-reply@wacoders.com"
+    pass: config.EPASSWORD, // senha do e-mail
+  },
+  tls: {
+    rejectUnauthorized: false, // às vezes HostGator exige isso
   },
 });
 
