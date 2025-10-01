@@ -4,14 +4,12 @@ const config = require("../config/config");
 
 const transporter = nodemailer.createTransport({
   host: config.HOST_SMTP, // mail.wacoders.com
-  port: 587, // 465
-  secure: false,
+  port: config.PORT_SMTP, // 465
+  secure: true,
   auth: {
     user: config.EMAIL, // "no-reply@wacoders.com"
     pass: config.EPASSWORD, // senha do e-mail
   },
-  logger: true,
-  debug: true,
   tls: {
     rejectUnauthorized: false, // às vezes HostGator exige isso
   },
