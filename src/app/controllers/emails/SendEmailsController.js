@@ -28,6 +28,9 @@ module.exports = class SendEmailsController {
 
     try {
       const resend = getResend();
+      // `provider` na resposta e no log mostra qual caminho foi usado (útil para conferir as variáveis na Vercel)
+      const provider = resend ? "resend" : "smtp";
+      if (!resend) console.warn("send-email: RESEND_API_KEY ausente neste deploy, usando SMTP");
       if (resend) {
         const { error } = await resend.emails.send({
           from: config.RESEND_FROM,
@@ -49,7 +52,8 @@ module.exports = class SendEmailsController {
           html: buildHtml(data),
         });
       }
-      return res.status(200).json({ message: "Email successfully sent" });
+      console.log(`send-email: enviado via ${provider}`);
+      return res.status(200).json({ message: "Email successfully sent", provider });
     } catch (error) {
       console.error("send-email failed:", error?.message || error);
       return res.status(500).json({ message: "Error sending email" });
