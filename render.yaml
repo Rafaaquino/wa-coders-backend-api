@@ -1,0 +1,43 @@
+# Blueprint do Render: https://render.com/docs/blueprint-spec
+# Uso: Dashboard > New > Blueprint > selecione este repositório. Os valores com `sync: false`
+# são pedidos no painel (segredos nunca ficam no repositório).
+services:
+  - type: web
+    name: wa-coders-backend-api
+    runtime: node
+    region: virginia # o Render não tem região no Brasil; Virginia é a mais próxima do Brasil e do EUA leste
+    # free: dorme após 15 min sem tráfego (1ª requisição leva ~30-60 s) e BLOQUEIA SMTP (465/587).
+    # starter: sempre ligado e libera SMTP. Veja as observações no README/CLAUDE.md.
+    plan: free
+    branch: master
+    buildCommand: npm install
+    startCommand: node app.js
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      # PORT é definida pelo próprio Render; app.js já lê process.env.PORT.
+      - key: MONGODB_URI
+        sync: false
+      - key: JWTSECRET
+        sync: false
+      # Formulários do site (Resend)
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM
+        value: WA Coders <site@wacoders.com>
+      - key: RESEND_TO
+        sync: false
+      # SMTP (recuperação de senha, orçamentos e fallback). Só funciona em plano pago no Render.
+      - key: EMAIL
+        sync: false
+      - key: EPASSWORD
+        sync: false
+      - key: EMAIL_RECOVERY
+        sync: false
+      - key: EPASSWORD_RECOVERY
+        sync: false
+      - key: EMAIL_SUPPORT
+        sync: false
+      - key: EPASSWORD_SUPPORT
+        sync: false
