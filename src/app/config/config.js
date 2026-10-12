@@ -45,6 +45,13 @@ module.exports = {
   PORT_SMTP: Number(process.env.PORT_SMTP) || 465,
   HOST_SMTP: process.env.HOST_SMTP || "mail.wacoders.com",
 
+  // Resend (formulários do site). Sem RESEND_API_KEY o envio cai no SMTP (nodemailer).
+  RESEND_API_KEY: process.env.RESEND_API_KEY,
+  // Remetente: precisa ser de um domínio verificado no Resend.
+  RESEND_FROM: process.env.RESEND_FROM || "WA Coders <site@wacoders.com>",
+  // Destinatário(s) dos formulários, separados por vírgula. Padrão: a caixa EMAIL.
+  RESEND_TO: process.env.RESEND_TO || process.env.EMAIL,
+
   // Frontend
   HOST_FRONT: process.env.HOST_FRONT || "https://www.wacoders.com",
   HOST_PROD: process.env.HOST_PROD || "https://wacoders.com",
